@@ -66,7 +66,6 @@ class BookstoreFrontend {
 
     async addBook() {
         try {
-            // Спочатку перевіримо, чи є автор та видавництво
             const authorsResponse = await fetch(`${this.apiBaseUrl}/authors/`);
             const publishersResponse = await fetch(`${this.apiBaseUrl}/publishers/`);
 
@@ -99,7 +98,7 @@ class BookstoreFrontend {
             }
 
             this.showMessage('✅ Книгу успішно додано!', 'success');
-            this.fetchBooks(); // Оновити список
+            this.fetchBooks();
 
         } catch (error) {
             console.error('Error adding book:', error);
@@ -108,7 +107,6 @@ class BookstoreFrontend {
     }
 }
 
-// Запуск додатку при завантаженні сторінки
 document.addEventListener('DOMContentLoaded', () => {
     new BookstoreFrontend();
 });
